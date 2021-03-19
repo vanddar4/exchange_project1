@@ -2,9 +2,13 @@
   "name": "exchange_project1",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "engines": {
+    "node": "8.11.1"
+  },
   "dependencies": {
-    "@truffle/hdwallet-provider": "^1.2.3",
-    "apexcharts": "^3.26.0",
+    "@truffle/hdwallet-provider": "1.1.0",
+    "apexcharts": "3.6.3",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-preset-es2015": "6.24.1",
@@ -28,7 +32,7 @@
     "redux": "4.0.5",
     "redux-logger": "3.0.6",
     "reselect": "4.0.0",
-    "solidity-coverage": "^0.7.16",
+    "solidity-coverage": "0.7.10",
     "truffle": "5.1.45",
     "truffle-flattener": "1.5.0",
     "truffle-hdwallet-provider-privkey": "0.3.0",
@@ -41,21 +45,12 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
