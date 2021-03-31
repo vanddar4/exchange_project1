@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import Web3 from 'web3';
 import './App.css';
-import Token from '../abis/Token.json';
+import Web3 from 'web3';
+import { connect } from 'react-redux';
+import { loadWeb3, loadAccount, loadToken, loadExchange } from '../store/interactions';
+
 
 class App extends Component {
-  componentWillMount () {
-    this.loadBlockchainData()
+  UNSAFE_componentWillMount () {
+    this.loadBlockchainData(this.props.dispatch)
   }
 
-  async loadBlockchainData() {
-    const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545')
-    const network = await web3.eth.net.getNetworkType()
+  async loadBlockchainData(dispatch) {
+    const web3 = await loadWeb3(dispatch)
+    // const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545')
+    // const network = await web3.eth.net.getNetworkType()
     const networkID = await web3.eth.net.getId()
-    const accounts = await web3.eth.getAccounts()
+    const accounts = await loadAccount(web3, dispatch)
+    // const accounts = await web3.eth.getAccounts()
 
-    console.log('abi', Token.abi)
-    console.log('address', Token.networks[networkID].address)
+    // console.log('abi', Token.abi)
+    // console.log('address', Token.networks[networkID].address)
 
-    const token = new web3.eth.Contract(Token.abi, Token.networks[networkID].address)
-    console.log('token', token)
-    const totalSupply = await token.methods.totalSupply().call()
-    console.log('totalSupply', totalSupply)
+    const token = await loadToken(web3, networkID, dispatch)
+    // const token = new web3.eth.Contract(Token.abi, Token.networks[networkID].address)
+    // console.log('token', token)
+    // const totalSupply = await token.methods.totalSupply().call()
+    // console.log('totalSupply', totalSupply)
 
+    const exchange = await loadExchange(web3, networkID, dispatch)
   }
 
   render() {
@@ -115,4 +121,11 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    //TODO
+  }
+}
+
+
+export default connect(mapStateToProps)(App);
