@@ -2,6 +2,7 @@
 pragma solidity >=0.4.22 <0.8.0;
 
 import "./Token.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 //TODO
 //[X] Set the fee account
