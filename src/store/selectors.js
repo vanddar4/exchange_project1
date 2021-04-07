@@ -27,6 +27,38 @@ const filledOrders = state => get(state, 'exchange.filledOrders.data', [])
 export const filledOrdersSelector = createSelector(
   filledOrders,
   (orders) => {
+    //Decorate the orders
+    orders = decorateFilledOrders(orders)
+
+    //Sort orders by date descending for display
+    orders = orders.sort((a,b) => b.timestamp - a.timestamp)
     console.log(orders)
   }
 )
+
+const decorateFilledOrders = (orders) => {
+  return(
+    orders.map((order) => {
+      return order = decorateOrder(order)
+    })
+  )
+}
+
+const decorateOrder = (order) => {
+  let etherAmount
+  let tokenAmount
+  // if tokenGive is ETHER_ADDRESS
+  if(order.tokenGive == "0x0000000000000000000000000000000000000000") {
+    etherAmount = order.amountGive
+    tokenAmount = order.amountGet
+  } else {
+    etherAmount = order.amountGet
+    tokenAmount = order.amountGive
+  }
+
+  return({
+    ...order,
+    etherAmount: etherAmount,
+    tokenAmount: tokenAmount
+  })
+}

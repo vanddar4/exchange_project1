@@ -1,8 +1,9 @@
-const Token = artifacts.require("Token");
-const Exchange = artifacts.require("Exchange");
+// Contracts
+const Token = artifacts.require("Token")
+const Exchange = artifacts.require("Exchange")
 
-//Utils
-const ETHER_ADDRESS = '0x0000000000000000000000000000000000000000' //Ether token deposit address
+// Utils
+const ETHER_ADDRESS = '0x0000000000000000000000000000000000000000' // Ether token deposit address
 const ether = (n) => {
   return new web3.utils.BN(
     web3.utils.toWei(n.toString(), 'ether')
@@ -15,8 +16,6 @@ const wait = (seconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-/* */
-//Exchange Seed
 module.exports = async function(callback) {
   try {
     // Fetch accounts from wallet - these are unlocked
@@ -41,9 +40,6 @@ module.exports = async function(callback) {
     // Set up exchange users
     const user1 = accounts[0]
     const user2 = accounts[1]
-    // const user3 = accounts[2]
-    // const user4 = accounts[3]
-    // const user5 = accounts[4]
 
     // User 1 Deposits Ether
     amount = 1
@@ -59,7 +55,7 @@ module.exports = async function(callback) {
     await exchange.depositToken(token.address, tokens(amount), { from: user2 })
     console.log(`Deposited ${amount} tokens from ${user2}`)
 
-    /*    */
+    /////////////////////////////////////////////////////////////
     // Seed a Cancelled Order
     //
 
@@ -74,7 +70,7 @@ module.exports = async function(callback) {
     await exchange.cancelOrder(orderId, { from: user1 })
     console.log(`Cancelled order from ${user1}`)
 
-    /*   */
+    /////////////////////////////////////////////////////////////
     // Seed Filled Orders
     //
 
@@ -114,7 +110,7 @@ module.exports = async function(callback) {
     // Wait 1 second
     await wait(1)
 
-    /*   */
+    /////////////////////////////////////////////////////////////
     // Seed Open Orders
     //
 

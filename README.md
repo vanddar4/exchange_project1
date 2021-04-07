@@ -72,5 +72,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### to redeploy smart contracts
 $ truffle migrate --reset
 
+### to manually connect metamask to local host 
+click three dots on the right inside your account on metamask, manually connect localhost
+
 ### to seed exchange
 $ truffle exec scripts/seed-exchange.js
+
