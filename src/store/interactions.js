@@ -59,9 +59,10 @@ export const loadExchange = async (web3, networkId, dispatch) => {
 export const loadAllOrders = async (exchange, dispatch) => {
   //Fetch cancelled orders with the "Cancel" event stream
   const cancelStream = await exchange.getPastEvents('Cancel', { fromBlock: 0, toBlock: 'latest'})
+  console.log(cancelStream)
   // Format cancelled orders
   const cancelledOrders = cancelStream.map((event) => event.returnValues)
-  // console.log(cancelledOrders)
+  
   // Add cancelled orders to the redux store
   dispatch(cancelledOrdersLoaded(cancelledOrders))
 

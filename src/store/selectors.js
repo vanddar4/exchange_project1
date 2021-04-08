@@ -48,7 +48,7 @@ const decorateOrder = (order) => {
   let etherAmount
   let tokenAmount
   // if tokenGive is ETHER_ADDRESS
-  if(order.tokenGive == "0x0000000000000000000000000000000000000000") {
+  if(order.tokenGive === "0x0000000000000000000000000000000000000000") {
     etherAmount = order.amountGive
     tokenAmount = order.amountGet
   } else {
