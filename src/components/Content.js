@@ -4,9 +4,8 @@ import { exchangeSelector } from '../store/selectors'
 import { loadAllOrders } from '../store/interactions'
 import Trades from './Trades'
 
-
 class Content extends Component {
-  UNSAFE_componentWillMount () {
+  UNSAFE_componentWillMount() {
     this.loadBlockchainData(this.props.dispatch)
   }
 
@@ -68,9 +67,7 @@ class Content extends Component {
             </div>
           </div>
         </div>
-        <div className="vertical">
-          <Trades />
-        </div>
+        <Trades />
       </div>
     )
   }

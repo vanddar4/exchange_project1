@@ -3,11 +3,16 @@ import './App.css'
 import Navbar from './Navbar'
 import Content from './Content'
 import { connect } from 'react-redux'
-import { loadWeb3, loadAccount, loadToken, loadExchange } from '../store/interactions'
+import {
+  loadWeb3,
+  loadAccount,
+  loadToken,
+  loadExchange
+} from '../store/interactions'
 import { contractsLoadedSelector } from '../store/selectors'
 
 class App extends Component {
-  UNSAFE_componentWillMount () {
+  UNSAFE_componentWillMount() {
     this.loadBlockchainData(this.props.dispatch)
   }
 
@@ -43,4 +48,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

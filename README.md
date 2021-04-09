@@ -69,11 +69,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### to redeploy smart contracts
-$ truffle migrate --reset
-
 ### to manually connect metamask to local host 
 click three dots on the right inside your account on metamask, manually connect localhost
+
+### to redeploy smart contracts
+$ truffle migrate --reset
 
 ### to seed exchange
 $ truffle exec scripts/seed-exchange.js
