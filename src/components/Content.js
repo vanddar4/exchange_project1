@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { exchangeSelector } from '../store/selectors'
 import { loadAllOrders } from '../store/interactions'
 import Trades from './Trades'
+import OrderBook from './OrderBook'
+
 
 class Content extends Component {
   UNSAFE_componentWillMount() {
@@ -36,7 +38,8 @@ class Content extends Component {
             </div>
           </div>
         </div>
-        <div className="vertical">
+        <OrderBook />
+        <div className="vertical-split">
           <div className="card bg-dark text-white">
             <div className="card-header">
               Card Title
