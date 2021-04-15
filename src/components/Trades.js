@@ -12,9 +12,9 @@ const showFilledOrders = (filledOrders) => {
       { filledOrders.map((order) => {
         return(
           <tr className={`order-${order.id}`} key={order.id}>
-            <td className="text-muted">{order.formattedTimestamp}</td>
             <td>{order.tokenAmount}</td>
             <td className={`text-${order.tokenPriceClass}`}>{order.tokenPrice}</td>
+            <td className="text-muted">{order.formattedTimestamp}</td>
           </tr>
         )
       }) }
@@ -33,10 +33,10 @@ class Trades extends Component {
           <div className="card-body">
             <table className="table table-dark table-sm small">
               <thead>
-                <tr>
-                  <th>Time</th>
+                <tr>               
                   <th>DYRIO</th>
                   <th>DYRIO/ETH</th>
+                  <th>Time</th>
                 </tr>
               </thead>
               { this.props.filledOrdersLoaded ? showFilledOrders(this.props.filledOrders) : <Spinner type="table" />}
