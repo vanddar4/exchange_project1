@@ -34,8 +34,8 @@ class Trades extends Component {
             <table className="table table-dark table-sm small">
               <thead>
                 <tr>               
-                  <th>DYRIO</th>
-                  <th>DYRIO/ETH</th>
+                  <th>DYRO</th>
+                  <th>DYRO/ETH</th>
                   <th>Time</th>
                 </tr>
               </thead>

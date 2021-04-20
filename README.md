@@ -78,3 +78,5 @@ $ truffle migrate --reset
 ### to seed exchange
 $ truffle exec scripts/seed-exchange.js
 
+### start localhost
+$ npm start

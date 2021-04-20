@@ -65,8 +65,8 @@ class MyTransactions extends Component {
                 <table className="table table-dark table-sm small">
                   <thead>
                     <tr>                   
-                      <th>DYRIO</th>
-                      <th>DYRIO/ETH</th>
+                      <th>DYRO</th>
+                      <th>DYRO/ETH</th>
                       <th>Time</th>
                     </tr>
                   </thead>
@@ -78,7 +78,7 @@ class MyTransactions extends Component {
                   <thead>
                     <tr>
                       <th>Amount</th>
-                      <th>DYRIO/ETH</th>
+                      <th>DYRO/ETH</th>
                       <th>Cancel</th>
                     </tr>
                   </thead>
