@@ -48,12 +48,28 @@ const showForm = (props) => {
         <table className="table table-dark table-sm small">
           <tbody>
             <tr>
-              <td>DAPP</td>
+              <td>DYRO</td>
               <td>{tokenBalance}</td>
               <td>{exchangeTokenBalance}</td>
             </tr>
           </tbody>
         </table>
+        <form className="row" onSubmit={(event) => {
+          event.preventDefault()
+          console.log("form submitting...")
+        }}>
+          <div className="col-12 col-sm pr-sm-2">
+            <input
+            type="text"
+            placeholder="ETH Amount"
+            onChange={(e) => console.log("amount change...") }
+            className="form-control form-control-sm bg-dark text-white"
+            required />
+          </div>
+          <div className="col-12 col-sm-auto pl-sm-0">
+            <button type="submit" className="btn btn-primary btn-block btn-sm">Deposit</button>
+          </div>
+        </form>
 
       </Tab>
 
@@ -85,7 +101,6 @@ const showForm = (props) => {
             </tr>
           </tbody>
         </table>
-
 
       </Tab>
     </Tabs>
