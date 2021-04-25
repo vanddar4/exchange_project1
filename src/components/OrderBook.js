@@ -6,25 +6,25 @@ import {
   orderBookSelector,
   orderBookLoadedSelector,
   exchangeSelector,
-  accountSelector, 
+  accountSelector,
   orderFillingSelector
 } from '../store/selectors'
 import { fillOrder } from '../store/interactions'
 
 const renderOrder = (order, props) => {
   const { dispatch, exchange, account } = props
-  
+
   return(
-    <OverlayTrigger 
-      key={order.id} 
-      placement='auto' 
+    <OverlayTrigger
+      key={order.id}
+      placement='auto'
       overlay={
         <Tooltip id={order.id}>
           {`Click here to ${order.orderFillAction}`}
         </Tooltip>
       }
     >
-      <tr 
+      <tr
         key={order.id}
         className="order-book-order"
         onClick={(e) => fillOrder(dispatch, exchange, order, account)}
@@ -39,6 +39,7 @@ const renderOrder = (order, props) => {
 
 const showOrderBook = (props) => {
   const { orderBook } = props
+
   return(
     <tbody>
       {orderBook.sellOrders.map((order) => renderOrder(order, props))}
@@ -54,7 +55,6 @@ const showOrderBook = (props) => {
 
 class OrderBook extends Component {
   render() {
-    console.log(this.props.showOrderBook, this.props.orderBook)
     return (
       <div className="vertical">
         <div className="card bg-dark text-white">
@@ -75,12 +75,14 @@ class OrderBook extends Component {
 function mapStateToProps(state) {
   const orderBookLoaded = orderBookLoadedSelector(state)
   const orderFilling = orderFillingSelector(state)
+
   return {
     orderBook: orderBookSelector(state),
     showOrderBook: orderBookLoaded && !orderFilling,
-    account: accountSelector(state),
-    exchange: exchangeSelector(state)
+    exchange: exchangeSelector(state),
+    account: accountSelector(state)
   }
 }
 
 export default connect(mapStateToProps)(OrderBook);
+
