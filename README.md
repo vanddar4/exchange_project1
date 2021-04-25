@@ -80,3 +80,9 @@ $ truffle exec scripts/seed-exchange.js
 
 ### start localhost
 $ npm start
+
+### deploying to blockchain
+https://faucet.kovan.network/
+truffle migrate --network kovan
+truffle networks
+truffle exec scripts/seed-exchange.js --network kovan
