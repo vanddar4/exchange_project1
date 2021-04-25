@@ -86,3 +86,21 @@ https://faucet.kovan.network/
 truffle migrate --network kovan
 truffle networks
 truffle exec scripts/seed-exchange.js --network kovan
+
+### heroku
+git status
+git remote add heroku https://git.heroku.com/dyro-token-exchange.git
+git remote -v    
+heroku login 
+git remote  
+git push heroku master  
+heroku run rake db:migrate
+heroku restart   
+heroku logs --tail
+
+### surge
+npm run build
+cd build 
+npm i -g surge    
+surge
+surge --domain knotty-beam.surge.sh
